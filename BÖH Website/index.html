@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>BHO Kulturverein e.V. – Start</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .language-buttons {
+            float: right;
+            padding: 8px 16px;
+        }
+
+            .language-buttons button {
+                background-color: #ffcc66;
+                color: #333;
+                border: none;
+                padding: 8px 12px;
+                margin-left: 5px;
+                border-radius: 6px;
+                cursor: pointer;
+                font-weight: bold;
+                transition: background-color 0.3s ease;
+            }
+
+                .language-buttons button:hover {
+                    background-color: #ffd280;
+                }
+    </style>
+    <script>
+        const translations = {
+            de: {
+                title: "Willkommen beim BHO Kulturverein e.V.",
+                text1: "Der BHO Kulturverein e.V. wurde 2022 gegründet und widmet sich der Förderung von Kunst, Kultur, Bildung und dem interkulturellen Dialog.",
+                text2: "Wir heißen alle willkommen, die sich für hinduistische Kultur und gemeinschaftliche Aktivitäten interessieren.",
+                where: "Wo finden Sie uns?",
+                nav: ["Start", "Über uns", "Aktivitäten", "Veranstaltungen", "Kontakt"]
+            },
+            en: {
+                title: "Welcome to BHO Kulturverein e.V.",
+                text1: "BHO Kulturverein e.V. was founded in 2022 and is dedicated to promoting art, culture, education and intercultural dialogue.",
+                text2: "We welcome everyone interested in Hindu culture and community activities.",
+                where: "Where to find us?",
+                nav: ["Home", "About Us", "Activities", "Events", "Contact"]
+            },
+            bn: {
+                title: "BHO Kulturverein e.V. এ আপনাকে স্বাগতম",
+                text1: "BHO Kulturverein e.V. 2022 সালে প্রতিষ্ঠিত হয় এবং এটি শিল্প, সংস্কৃতি, শিক্ষা এবং আন্ত-সাংস্কৃতিক সংলাপকে উৎসাহিত করতে নিবেদিত।",
+                text2: "আমরা হিন্দু সংস্কৃতি এবং সামাজিক কার্যকলাপে আগ্রহীদের স্বাগত জানাই।",
+                where: "আমাদের কোথায় পাবেন?",
+                nav: ["হোম", "আমাদের সম্পর্কে", "কার্যক্রম", "ইভেন্ট", "যোগাযোগ"]
+            }
+        };
+
+        function setLanguage(lang) {
+            document.getElementById("main-title").textContent = translations[lang].title;
+            document.getElementById("text1").textContent = translations[lang].text1;
+            document.getElementById("text2").textContent = translations[lang].text2;
+            document.getElementById("map-title").textContent = translations[lang].where;
+
+            const navItems = document.querySelectorAll("nav a");
+            const labels = translations[lang].nav;
+            navItems.forEach((item, index) => {
+                item.textContent = labels[index];
+            });
+        }
+
+    </script>
+</head>
+<body>
+
+    <header>
+        <img src="logo.png" alt="BHO Logo">
+    </header>
+
+    <nav>
+        <a href="index.html">Start</a>
+        <a href="ueber-uns.html">Über uns</a>
+        <a href="aktivitaeten.html">Aktivitäten</a>
+        <a href="veranstaltungen.html">Veranstaltungen</a>
+        <a href="kontakt.html">Kontakt</a>
+        <span class="language-buttons">
+            <button onclick="setLanguage('de')">Deutsch</button>
+            <button onclick="setLanguage('en')">English</button>
+            <button onclick="setLanguage('bn')">বাংলা</button>
+        </span>
+    </nav>
+
+    <main style="display: flex; flex-wrap: wrap; align-items: flex-start; gap: 20px;">
+        <div style="flex: 1; min-width: 250px;">
+            <h1 id="main-title">Willkommen beim BHO Kulturverein e.V.</h1>
+            <p id="text1">Der BHO Kulturverein e.V. wurde 2022 gegründet und widmet sich der Förderung von Kunst, Kultur, Bildung und dem interkulturellen Dialog.</p>
+            <p id="text2">Wir heißen alle willkommen, die sich für hinduistische Kultur und gemeinschaftliche Aktivitäten interessieren.</p>
+        </div>
+        <div style="flex: 1; min-width: 250px;">
+            <img src="bild1.png" alt="BHO Kulturverein Bild" style="width: 100%; border: 2px solid #ccc; border-radius: 4px;">
+        </div>
+    </main>
+
+    <section class="pastevents-section" style="text-align: center;">
+        <h2>Vergangene Events</h2>
+        <div class="inspiration-grid" style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
+            <div class="event-item">
+                <img src="bild2.jfif" alt="event 1" style="max-width: 200px; height: auto; border-radius: 12px; display: block; margin: 0 auto;">
+                <p>Durga Puja</p>
+            </div>
+            <div class="event-item">
+                <img src="bild3.jpg" alt="event 2" style="max-width: 200px; height: auto; border-radius: 12px; display: block; margin: 0 auto;">
+                <p>Boishakh</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section style="padding: 20px; max-width: 960px; margin: auto;">
+        <h2 id="map-title">Wo finden Sie uns?</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2656.9740742783435!2d16.33089811566113!3d48.213010979229464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476d072d1e1849f5%3A0xe063f6258d6309cc!2sHerbststra%C3%9Fe%2054%2C%201160%20Wien%2C%20Austria!5e0!3m2!1sen!2sat!4v1716634037337!5m2!1sen!2sat"
+                width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </section>
+
+    <footer>
+        &copy; 2025 BHO Kulturverein e.V.
+    </footer>
+
+</body>
+</html>
